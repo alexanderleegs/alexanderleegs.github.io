@@ -1,0 +1,8 @@
+.about {
+    background-image:url('/images/background.jpg');
+    padding-top:'50px';
+    background-size: cover;
+    color:white;
+    height:50rem;
+    vertical-align: middle;
+}

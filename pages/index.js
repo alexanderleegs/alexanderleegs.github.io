@@ -1,209 +1,111 @@
 import Head from 'next/head'
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+import Header from '../components/header.js'
+import About from '../components/about.js'
+import Footer from '../components/footer.js'
+import Exp from '../components/exp'
+import Proj from '../components/proj'
 
-      <main>
-        <h1 className="title">
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+import utilStyles from '../styles/utils.module.css'
 
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
+class Index extends React.Component {
+  
+  render() {
+    const works = [
+      {
+        name: 'dso1',
+        img: "/images/dso.png",
+        text: "I spent the summer at DSO National Laboratories working on a cognitive system for awareness and response. The AI developed was meant to be able to distinguish between instances of known classes which it had been trained on, and instances of unknown classes which had little similarity to the currently known classes it was trained on. The system would then handle each case appropriately. The framework designed allowed for the system to use interchangeable modules for each of its components. During the process of this internship, I investigated uncertainty modelling in AI with Bayesian neural networks and case-based reasoning.",
+        caption: "Intern",
+        date: "May \'19 - Aug \'19",
+        short: "Cognitive System Framework"
+      },
+      {
+        name: 'dso1',
+        img: "/images/dso.png",
+        text: "My internship at DSO National Laboratories for the summer was one of my first experiences working on AI. I helped to develop an AI agent for automatic image tracking and recognition. During this internship, I investigated the effectiveness of k-means clustering and transfer learning.",
+        caption: "Intern",
+        date: "May \'18 - Aug \'18",
+        short: "Automatic Image Tracking and Recognition"
+      },
+      {
+        name: 'tinkertanker',
+        img: "/images/tinkertanker.png",
+        text: "I spent the summer of 2017 interning at Tinkertanker, where I helped out with programming classes for schools on the Micro:bit. I also worked on a physical cardboard arcade machine, building the physical machine as well as a racing arcade game for it on the Arduino and the Micro:bit.",
+        caption: "Intern",
+        date: "May \'17 - Jul \'17",
+        short: "Cardboard Arcade"
+      },
+      {
+        name: 'nus',
+        img: "/images/nus.jpg",
+        text: "I have been a TA for CS1231 Discrete Structures (Fall 2017, Fall 2018) and CS3203 Software Engineering Project (Fall 2019, Spring 2020). My teaching duties involve conducting tutorial sessions, consultation sessions, assignment grading, and project discussion.",
+        caption: "Teaching Assistant",
+        date: "Aug \'17 - Apr \'20",
+        short: "Teaching Assistant for various modules"
+      }
+    ]
+    const projs = [
+      {
+        name: 'fyp',
+        img: "/images/ai.png",
+        text: "I worked on developing data poisoning attacks built specifically to affect the explanations provided by model explanation algorithms without affecting the underlying model, as part of my Final Year Project.",
+        caption: "AI Research",
+        date: "Apr \'20",
+        short: "Data Poisoning Attacks against Model Explanation Algorithms"
+      },
+      {
+        name: 'spa',
+        img: "/images/checklist.png",
+        text: "I worked on a Static Program Analyzer from scratch as part of a school group project. It was able to parse programs written in a custom language using top-down recursive descent, store the data, and answer queries about the program.",
+        caption: "Static Program Analyzer",
+        date: "Oct \'19",
+        short: "Static Program Analyzer to parse a program and answer queries"
+      },
+      {
+        name: 'pokemon',
+        img: "/images/pokemon.ico",
+        text: "I wrote an AI which could compete in structured Pokémon battles online as part of a group project. We investigated the use of deep Q-learning to train our agent.",
+        caption: "Pokémon AI",
+        date: "Oct \'18",
+        short: "Creating a Pokémon Master through Reinforcement Learning"
+      },
+      {
+        name: 'tetris',
+        img: "/images/tetris.jpg",
+        text: "I wrote a Java based Tetris playing AI as part of a school group project. We used a combination of a Genetic Algorithm and a Particle Swarm algorithm to build our model.",
+        caption: "Tetris AI",
+        date: "Mar \'18",
+        short: "Java-based Tetris playing AI"
+      },
+      {
+        name: 'bot',
+        img: "/images/telegram.jpg",
+        text: "I wrote a Telegram bot for internal route planning within NUS, meant to help students find the best trip to take to get to their next class. It retrieved a student's timetable and generated the appropriate path based on the internal shuttle bus route and timings. The project won 3rd prize at <hackfestsg/>.",
+        caption: "Telegram bot",
+        date: "Aug \'16",
+        short: "NUS Busbot"
+      }
+    ]
+    return (
+      <div>
+        <Head>
+          <title>Alexander Lee</title>
+        </Head>
+        
+        <Header />
+        <body class='flexfill'>
+          <About />
 
-        <div className="grid">
-          <a href="https://nextjs.org/docs" className="card">
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className="card">
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/zeit/next.js/tree/master/examples"
-            className="card"
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className="card"
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className="logo" />
-        </a>
-      </footer>
-
-      <style jsx>{`
-        .container {
-          min-height: 100vh;
-          padding: 0 0.5rem;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        main {
-          padding: 5rem 0;
-          flex: 1;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer {
-          width: 100%;
-          height: 100px;
-          border-top: 1px solid #eaeaea;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        footer img {
-          margin-left: 0.5rem;
-        }
-
-        footer a {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-
-        a {
-          color: inherit;
-          text-decoration: none;
-        }
-
-        .title a {
-          color: #0070f3;
-          text-decoration: none;
-        }
-
-        .title a:hover,
-        .title a:focus,
-        .title a:active {
-          text-decoration: underline;
-        }
-
-        .title {
-          margin: 0;
-          line-height: 1.15;
-          font-size: 4rem;
-        }
-
-        .title,
-        .description {
-          text-align: center;
-        }
-
-        .description {
-          line-height: 1.5;
-          font-size: 1.5rem;
-        }
-
-        code {
-          background: #fafafa;
-          border-radius: 5px;
-          padding: 0.75rem;
-          font-size: 1.1rem;
-          font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-            DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
-        }
-
-        .grid {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          flex-wrap: wrap;
-
-          max-width: 800px;
-          margin-top: 3rem;
-        }
-
-        .card {
-          margin: 1rem;
-          flex-basis: 45%;
-          padding: 1.5rem;
-          text-align: left;
-          color: inherit;
-          text-decoration: none;
-          border: 1px solid #eaeaea;
-          border-radius: 10px;
-          transition: color 0.15s ease, border-color 0.15s ease;
-        }
-
-        .card:hover,
-        .card:focus,
-        .card:active {
-          color: #0070f3;
-          border-color: #0070f3;
-        }
-
-        .card h3 {
-          margin: 0 0 1rem 0;
-          font-size: 1.5rem;
-        }
-
-        .card p {
-          margin: 0;
-          font-size: 1.25rem;
-          line-height: 1.5;
-        }
-
-        .logo {
-          height: 1em;
-        }
-
-        @media (max-width: 600px) {
-          .grid {
-            width: 100%;
-            flex-direction: column;
-          }
-        }
-      `}</style>
-
-      <style jsx global>{`
-        html,
-        body {
-          padding: 0;
-          margin: 0;
-          font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-            Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-            sans-serif;
-        }
-
-        * {
-          box-sizing: border-box;
-        }
-      `}</style>
-    </div>
-  )
+          <Exp items={works} />
+          
+          <Proj items={projs} />
+        </body>
+        <Footer />
+      </div>
+    )
+  }
+  
 }
+
+export default Index
